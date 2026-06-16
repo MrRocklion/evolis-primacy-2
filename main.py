@@ -623,6 +623,16 @@ class UserRegistration(QWidget):
                 photo_path  = self._photo_path,
                 output_path = output_path,
             ))
+              
+            success, message = print_card(
+                printer_name   = "Evolis Primacy 2",
+                front_bmp_path = output_path,
+            )
+
+            if success:
+                print(f"✅ {message}")
+            else:
+                print(f"❌ {message}")
             QMessageBox.information(self, "Exito", f"Tarjeta generada:\n{Path(output).resolve()}")
         except FileNotFoundError as e:
             QMessageBox.critical(self, "Archivo no encontrado", str(e))
