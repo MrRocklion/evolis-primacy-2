@@ -1,0 +1,8 @@
+.env
+*.log
+*.tmp
+*.pyc
+__pycache__/
+cards/
+profiles/
+.vscode
