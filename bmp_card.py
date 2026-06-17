@@ -16,10 +16,10 @@ CARD_HEIGHT  = 648
 DECO_HEIGHT  = 60
 AREA_PADDING = 20
 
-PHOTO_WIDTH  = 200
-PHOTO_HEIGHT = 260
-LOGO_WIDTH   = 200
-LOGO_HEIGHT  = 120
+PHOTO_WIDTH  = 230
+PHOTO_HEIGHT = 280
+LOGO_WIDTH   = 240
+LOGO_HEIGHT  = 110
 
 MARGIN       = 40
 GAP          = 30
@@ -124,7 +124,7 @@ def generate_card(data: CardData) -> Path:
     fonts = _load_fonts({
         "deco":        26,
         "label":       24,
-        "label_bold":  26,   # mismo tamaño, distinto archivo
+        "label_bold":  32,   # mismo tamaño, distinto archivo
         "value":       28,
     })
 
@@ -141,7 +141,7 @@ def generate_card(data: CardData) -> Path:
 
     # ── Photo and logo ─────────────────────────────────────────────
     _paste_image(canvas, data.photo_path, (PHOTO_WIDTH, PHOTO_HEIGHT), (photo_x, photo_y))
-    _paste_image(canvas, data.logo_path,  (LOGO_WIDTH,  LOGO_HEIGHT),  (logo_x,  320))
+    _paste_image(canvas, data.logo_path,  (LOGO_WIDTH,  LOGO_HEIGHT),  (logo_x +20,  345))
 
     # ── Text fields ────────────────────────────────────────────────
     # if self.fare_type  === FareType.no
@@ -173,10 +173,10 @@ def generate_card(data: CardData) -> Path:
         y = text_start_y + index * LINE_HEIGHT + LINE_HEIGHT // 2
         if label=='Tipo de tarifa:':
             draw.text((text_x,               y), label, fill=COLOR_LABEL, font=fonts["label_bold"], anchor="lm")
-            draw.text((text_x +40+ LABEL_WIDTH, y), value, fill=COLOR_LABEL, font=fonts["label_bold"], anchor="lm")
+            draw.text((text_x +70+ LABEL_WIDTH, y), value, fill=COLOR_LABEL, font=fonts["label_bold"], anchor="lm")
         else:
             draw.text((text_x,               y), label, fill=COLOR_LABEL, font=fonts["label_bold"], anchor="lm")
-            draw.text((text_x +20+ LABEL_WIDTH, y), value, fill=COLOR_VALUE, font=fonts["label_bold"], anchor="lm")
+            draw.text((text_x +70+ LABEL_WIDTH, y), value, fill=COLOR_VALUE, font=fonts["label_bold"], anchor="lm")
 
     # ── Save ───────────────────────────────────────────────────────
     output = Path(data.output_path)

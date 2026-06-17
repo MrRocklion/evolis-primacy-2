@@ -11,7 +11,10 @@ PROFILE_ID_TO_FARE: dict[int, str] = {
     4: "TERCERA EDAD",
     5: "CAPACIDADES DIFERENTES",
 }
-
+HEADERS = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer token_de_autorizacion',
+}
 KBUS_HEADERS = {
     "Accept":            "*/*",
     "Accept-Language":   "es-419,es;q=0.6",
@@ -33,12 +36,12 @@ KBUS_HEADERS = {
 }
 
 KBUS_COOKIES = {
-    "PHPSESSID":        "adufr8hdtvfb7k6ers7j926bd7",
+    "PHPSESSID":        "4pprcuia47f6qnirmnpkfikcmu",
     "ID_ADMINISTRADOR": "6565",
     "LONGITUD":         "-79.201689",
     "LATITUD":          "-3.996322",
     "USUARIO":          "j1104595671",
-    "TOKEN":            "073a2f1bd420b31553404185bb76a61b0719183a0ab94983e9f3cde2a1935683",
+    "TOKEN":            "45d42cef8595ef45d8d00f7cf61493ef1c6b7d29f7af5f85f5d925c7b0f66c3d",
     "IMEI":             "843890013362090600",
     "INICIO":           "0",
     "PATH":             "admin.php",
@@ -79,7 +82,7 @@ def _fetch_raw(dni: str) -> dict | None:
         Parsed JSON response, or None on network/HTTP error.
     """
     params = {
-        "_dc":      "1781642175822",
+        "_dc":      "1981717720096",
         "param":    dni,
         "idEstado": 1,
         "idTarjeta": "",
